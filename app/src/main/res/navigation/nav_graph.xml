@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
 
+        <fragment
+            android:id="@+id/mainFragment"
+            android:name="com.example.homework13_2.MainFragment"
+            android:label="MainFragment"
+            tools:layout="@layout/fragment_main"/>
+
+    <fragment
+        android:id="@+id/doingFragment"
+        android:name="com.example.homework13_2.DoingFragment"
+        android:label="DoingFragment"
+        tools:layout="@layout/fragment_doing"/>
+    <fragment
+        android:id="@+id/doneFragment"
+        android:name="com.example.homework13_2.DoneFragment"
+        android:label="DoneFragment"
+        tools:layout="@layout/fragment_done"/>
+    <fragment
+        android:id="@+id/todoFragment"
+        android:name="com.example.homework13_2.TodoFragment"
+        android:label="TodoFragment"
+        tools:layout="@layout/fragment_todo"/>
+    <action android:id="@+id/action_global_doingFragment" app:destination="@id/doingFragment" />
+    <action android:id="@+id/action_global_doneFragment" app:destination="@id/doneFragment" />
+    <action android:id="@+id/action_global_todoFragment" app:destination="@id/todoFragment" />
 </navigation>
