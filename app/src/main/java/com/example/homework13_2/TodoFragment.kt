@@ -16,7 +16,6 @@ class TodoFragment : Fragment(R.layout.fragment_todo) {
     private val mainViewModel:MainViewModel by activityViewModels()
     lateinit var binding: FragmentTodoBinding
     private val taskListTodo= mutableSetOf<Task>()
-
      private val taskAdapterList by lazy { TaskAdapterList() }
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,7 +29,6 @@ class TodoFragment : Fragment(R.layout.fragment_todo) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var index=-1
         binding.lifecycleOwner=viewLifecycleOwner
         mainViewModel.listTaskLiveData.observe(viewLifecycleOwner){tasks->
             for (i in tasks.indices){
@@ -40,6 +38,7 @@ class TodoFragment : Fragment(R.layout.fragment_todo) {
             }
             taskAdapterList.differ.submitList(taskListTodo.toList())
         }
+
 
         binding.rvTaskTodo.apply {
             layoutManager=LinearLayoutManager(activity)

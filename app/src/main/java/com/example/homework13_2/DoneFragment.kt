@@ -1,10 +1,14 @@
 package com.example.homework13_2
 
 import android.content.res.Configuration
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
+import androidx.cardview.widget.CardView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -26,9 +30,9 @@ class DoneFragment : Fragment(R.layout.fragment_done) {
         return binding.root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var index=-1
         binding.lifecycleOwner=viewLifecycleOwner
         mainViewModel.listTaskLiveData.observe(viewLifecycleOwner){ tasks ->
 

@@ -29,7 +29,6 @@ class DoingFragment : Fragment(R.layout.fragment_doing) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.lifecycleOwner=viewLifecycleOwner
-        var index=-1
         mainViewModel.listTaskLiveData.observe(viewLifecycleOwner){tasks->
 
             for (i in tasks.indices){
@@ -40,6 +39,7 @@ class DoingFragment : Fragment(R.layout.fragment_doing) {
             taskAdapterList.differ.submitList(taskListDoing.toList())
 
         }
+
 
         binding.rvTaskDoing.apply {
             layoutManager= LinearLayoutManager(activity)

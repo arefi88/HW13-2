@@ -1,5 +1,10 @@
 package com.example.homework13_2
 
+import android.graphics.Color
+import android.os.Build
+import android.view.View
+import androidx.annotation.RequiresApi
+import androidx.cardview.widget.CardView
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import java.util.*
@@ -7,6 +12,8 @@ import java.util.*
 class MainViewModel : ViewModel() {
 
     val indexLiveData=MutableLiveData<Int>()
+    val isSelect=MutableLiveData<Boolean>()
+    val backgroundView=MutableLiveData<Int>()
     var listTask:MutableList<Task> = mutableListOf()
     val counter=MutableLiveData(0)
     val listTaskLiveData=MutableLiveData<MutableList<Task>>()
@@ -15,6 +22,11 @@ class MainViewModel : ViewModel() {
     val rand= Random()
     var count=0
     private var n=-1
+
+
+    fun setBackground(color:Int){
+       backgroundView.value=color
+    }
 
     fun updateTask(taskName: Task){
         task.value=taskName
